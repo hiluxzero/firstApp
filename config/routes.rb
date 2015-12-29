@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'cities/index'
 
   get 'cities/show'
@@ -11,14 +13,24 @@ Rails.application.routes.draw do
 	get '/cities/:id/edit' => 'cities#edit' , as: "edit_city"
 	patch '/cities/:id' => 'cities#update'
 
+
+	get  '/signup' => 'users#new'
+
 	resources :countries
+	resources :users
+
+
+	#Sessions
+	get '/login' => 'sessions#new', as: 'login'
+	post '/login' => 'sessions#create'
+	get '/logout' => 'sessions#destroy'
 
 
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 
 	# You can have the root of your site routed with "root"
-	# root 'welcome#index'
+	 root 'users#profile'
 
 	# Example of regular route:
 	#   get 'products/:id' => 'catalog#view'

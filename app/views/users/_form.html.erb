@@ -1,0 +1,30 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+      <%= f.text_field :name, :placeholder => "Name" %>
+      <%= f.email_field :email, :placeholder => "Email" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.date_field :birthday, :placeholder => "Fecha Nacimiento" %>
+      <%= f.select :city_id, options_for_select(City.all.map{|s|[s.name, s.id]}) %>
+      <%= f.text_field :fb_id, :placeholder => "Facebook ID" %>
+      <%= f.text_field :description, :placeholder => "Descripción" %>
+      <%= f.text_field :photo, :placeholder => "Foto" %>
+      <%= f.text_field :gender, :placeholder => "Sexo" %>
+      <%= f.text_field :facebook, :placeholder => "Facebook" %>
+      <%= f.text_field :twitter, :placeholder => "Twitter" %>
+      <%= f.text_field :role, :placeholder => "Role" %>
+
+  <div class="actions">
+    <%= f.submit "Create an account", class: "btn-submit"  %>
+  </div>
+<% end %>

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151228155807) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.date     "birthday"
     t.integer  "city_id"
     t.string   "fb_id"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20151228155807) do
     t.string   "facebook"
     t.string   "twitter"
     t.string   "role"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
