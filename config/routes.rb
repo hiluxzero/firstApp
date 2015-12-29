@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'cities/index'
-
-  get 'cities/show'
-
+	
 	get  '/cities' => 'cities#index'
 	get '/cities/new' => 'cities#new'
 	get '/cities/:id'  => 'cities#show' , as: "city" #city_path(@city)
