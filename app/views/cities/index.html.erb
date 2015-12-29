@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-10">
+		<h1>Listado de Ciudades</h1>
+		<p>Find me in app/views/cities/index.html.erb</p>
+	</div>
+	<div class="col-md-2">
+		<%= link_to 'Agregar' , cities_new_path() , class: "btn btn-success", escape: "false" %>
+	</div>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Country</th>
+			<th>Opción</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cities.each do |c| %>
+			<tr>
+				<td><%= c.name %></td>
+				<td><%= c.country.name %></td>
+				<td> 
+					<%= link_to 'Ver' , city_path(c.id) %> |
+					<%= link_to 'Editar' , edit_city_path(c.id) %> |
+					<%= link_to "Eliminar", city_path(c.id), :method => :delete %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+

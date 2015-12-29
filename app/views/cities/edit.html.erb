@@ -1,0 +1,15 @@
+<h1>Editar Ciudad</h1>
+<hr>
+<%= form_for(@city) do |f| %>
+	<p>
+		<%= f.label :nombre %><br>
+		<%= f.text_field :name, :placeholder => "Nombre Ciudad" %>
+
+	</p>
+	<p>
+		<%= f.label :Ciudad %><br>
+		<%= f.select  :country_id, options_for_select(Country.all.map{|s|[s.name, s.id]}, @city.country_id)  %>
+	</p>
+	<%= f.submit "Editar " + @city.name , class: "btn btn-danger" %>
+	<%= link_to "Volver", cities_path, class: "btn btn-info" %>
+<% end %>
